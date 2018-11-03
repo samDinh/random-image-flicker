@@ -1,15 +1,9 @@
 package com.sdn.randomimageflicker;
 
-import org.junit.runner.RunWith;
-
-import cucumber.api.CucumberOptions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.api.junit.Cucumber;
 
-@RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources")
 public class TestRandomFileFinderService extends RandomImageFlickerApplicationTests {
 
 	@When("^the client ask for a random file$")
@@ -33,17 +27,17 @@ public class TestRandomFileFinderService extends RandomImageFlickerApplicationTe
 	}
 
 	@Then("^the client receives the only one file from the default folder$")
-	public void get_file_from_root_folder(int statusCode) {
+	public void get_file_from_root_folder() {
 
 	}
 
 	@Then("the client receives the file in the sub-folder$")
-	public void get_file_from_sub_folder(int statusCode) {
+	public void get_file_from_sub_folder() {
 
 	}
 
 	@Then("an exception is thrown$")
-	public void get_exception(int statusCode) {
+	public void get_exception() {
 
 	}
 

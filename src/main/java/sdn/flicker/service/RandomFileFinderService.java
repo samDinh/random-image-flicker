@@ -8,7 +8,7 @@ public class RandomFileFinderService {
 	public String fetchRandomFilePath() {
 		return null;
 	}
-	
+
 	public byte[] fetchRandomFileDate() {
 		return null;
 	}
