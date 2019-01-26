@@ -16,9 +16,11 @@ import sdn.flicker.error.EmptyDirectoryException;
 @Service
 public class RandomFileFinderService {
 
+//	private String root_directory = "D:\\Pictures\\references";
 	private String root_directory = "D:\\Pictures\\references";
+	
 
-	public String fetchRandomFilePath() throws IOException, EmptyDirectoryException {
+	public Path fetchRandomFilePath() throws IOException, EmptyDirectoryException {
 		List<Path> fileList = getFileList(root_directory);
 		fileList.removeIf(Files::isDirectory);
 		if(fileList.isEmpty()) {
@@ -46,14 +48,14 @@ public class RandomFileFinderService {
 		.collect(Collectors.toList());
 	}
 
-	private String getRandomFileFromList(List<Path> fileList) {
+	private Path getRandomFileFromList(List<Path> fileList) {
 		Random rand = new Random();
 		int randomIndex = rand.nextInt(fileList.size());
-		return fileList.get(randomIndex).toString();
+		return fileList.get(randomIndex).toAbsolutePath();
 	}
 
-	public byte[] fetchRandomFileDate() {
-		return null;
+	public byte[] fetchRandomFileData() throws IOException, EmptyDirectoryException {
+		return Files.readAllBytes(fetchRandomFilePath());
 	}
 
 	public void setRoot_directory(String root_directory) {

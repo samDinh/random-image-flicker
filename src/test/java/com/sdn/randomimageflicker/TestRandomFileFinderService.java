@@ -23,7 +23,7 @@ public class TestRandomFileFinderService extends RandomImageFlickerApplicationTe
 
 	@When("^the client ask for a random file$")
 	public void the_client_ask_for_a_file() throws IOException, EmptyDirectoryException {
-		result = finder.fetchRandomFilePath();
+		result = finder.fetchRandomFilePath().toString();
 	}
 
 	@Given("^there is only one file and it is at the root of the default folder$")
@@ -51,7 +51,7 @@ public class TestRandomFileFinderService extends RandomImageFlickerApplicationTe
 	public void testFetchRandomFilePath_empty_directory_case() {
 		finder.setRoot_directory(".\\src\\test\\resources\\testFolder3");
 		try {
-			result = finder.fetchRandomFilePath();
+			result = finder.fetchRandomFilePath().toString();
 			fail("should have thrown EmptyDirectoryException");
 		} catch (IOException e) {
 			fail("should have thrown EmptyDirectoryException");
